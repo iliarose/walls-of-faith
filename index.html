@@ -735,7 +735,7 @@ function tipHTML(o){
  return`<b>${sc.nm}</b> · ${hp} · speed ${ENEMY[k].sp}${e&&e.slow>0?' (slowed)':''}${e&&e.stun>0?' (stunned)':''}${sc.S.length?'<div class=ts>▲ '+sc.S.join('<br>▲ ')+'</div>':''}${sc.Wk.length?'<div class=tw>▼ '+sc.Wk.join('<br>▼ ')+'</div>':''}${sc.neutral?'<div class=tn>• Neutral unit: no special strengths or weaknesses</div>':''}<div class=tc>✔ ${sc.C.join('<br>✔ ')}</div>`}
 let tipSticky=0,tipKey='';
 function showTip(o,p){const h=tipHTML(o);if(!h)return hideTip();const el=$('tip');const key=(o.wave?'w'+G.wave+(o.arm?'a':''):o.k)+(o.e?Math.ceil(o.e.hp):'');if(key!==tipKey||el.style.display!=='block'){el.innerHTML=h;tipKey=key}el.style.display='block';
- const r=cv.getBoundingClientRect(),sx=r.width/W,px=r.left+p.x*sx,py=r.top+p.y*sx,tw=el.offsetWidth,th=el.offsetHeight;
+ const r=cv.getBoundingClientRect(),sx=r.width/W,sy=r.height/H,px=r.left+p.x*sx,py=r.top+p.y*sy,tw=el.offsetWidth,th=el.offsetHeight;
  let left,top;
  if(o.wave){const preferRight=p.x<W*.55;left=preferRight?px+36:px-tw-36;top=py-th*.4}
  else{left=px+(px>r.left+r.width/2?-tw-14:14);top=py-th/2}
@@ -851,9 +851,11 @@ function resize(){const w=innerWidth,h=innerHeight,port=w<h&&('ontouchstart' in 
  const play=document.body.classList.contains('play'),wrap=$('wrap');
  wrap.style.justifyContent=play?'flex-start':'center';
  let railW=0;
- if(play){document.documentElement.style.setProperty('--rail',(isMobileUI()?60:68)+'px');railW=$('rail').getBoundingClientRect().width|| (isMobileUI()?60:68)}
- const availW=Math.max(120,w-railW),availH=h,sc=Math.min(availW/W,availH/H);
- cv.style.width=Math.floor(W*sc)+'px';cv.style.height=Math.floor(H*sc)+'px';
+ if(play){document.documentElement.style.setProperty('--rail',(isMobileUI()?60:68)+'px');railW=$('rail').getBoundingClientRect().width||(isMobileUI()?60:68)}
+ const availW=Math.max(120,w-railW),availH=Math.max(120,h);
+ // Non-uniform CSS stretch: fill remaining space; internal 960x600 logic unchanged
+ if(play){cv.style.width=Math.floor(availW)+'px';cv.style.height=Math.floor(availH)+'px'}
+ else{const sc=Math.min(availW/W,availH/H);cv.style.width=Math.floor(W*sc)+'px';cv.style.height=Math.floor(H*sc)+'px'}
  if(isMobileUI()){cv.style.border='0';cv.style.borderRadius='0';cv.style.boxShadow='none'}
 }
 addEventListener('fullscreenchange',resize);addEventListener('webkitfullscreenchange',resize);
