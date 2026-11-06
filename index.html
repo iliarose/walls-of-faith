@@ -192,7 +192,25 @@ const QUIZ=[
  {q:'What did God send to shut the lions\' mouths?',a:['His angel','A storm','Fire','An army'],c:0,ref:'Daniel 6:22'},
  {q:'What did the handwriting on the wall announce to Belshazzar?',a:['His kingdom was finished','A great harvest','A new temple','A coming flood'],c:0,ref:'Daniel 5:25-28'},
  {q:'Complete: "for man looketh on the outward appearance, but the LORD looketh on the ____"',a:['heart','hands','deeds','face'],c:0,ref:'1 Samuel 16:7'},
- {q:'Complete: "If God be for us, who can be ____ us?"',a:['against','above','before','beside'],c:0,ref:'Romans 8:31'}
+ {q:'Complete: "If God be for us, who can be ____ us?"',a:['against','above','before','beside'],c:0,ref:'Romans 8:31'},
+ {q:'How long was Jonah in the belly of the great fish?',a:['Three days and three nights','Forty days','Seven days','One night'],c:0,ref:'Jonah 1:17'},
+ {q:'How did Nineveh respond to Jonah\'s warning?',a:['They believed God and fasted','They ignored him','They threw him out','They attacked Israel'],c:0,ref:'Jonah 3:5'},
+ {q:'Why does God say He should spare Nineveh?',a:['Many people who cannot tell right from left','It paid high taxes','Jonah asked Him to','It had a temple'],c:0,ref:'Jonah 4:11'},
+ {q:'What shone around Saul near Damascus?',a:['A light from heaven','A pillar of fire','Lightning only','The sun at noon only'],c:0,ref:'Acts 9:3'},
+ {q:'Whom did the Lord say Saul was persecuting?',a:['Jesus','Peter','The Romans','Ananias'],c:0,ref:'Acts 9:5'},
+ {q:'What did the Lord call Saul?',a:['A chosen vessel','A lost cause','A Pharisee forever','A king'],c:0,ref:'Acts 9:15'},
+ {q:'What were Paul and Silas doing at midnight in prison?',a:['Praying and singing praises','Sleeping','Escaping','Writing letters'],c:0,ref:'Acts 16:25'},
+ {q:'What did Paul and Silas tell the jailer to do?',a:['Believe on the Lord Jesus Christ','Pay a fine','Flee the city','Join the army'],c:0,ref:'Acts 16:31'},
+ {q:'Where was John when he received the Revelation?',a:['The isle of Patmos','Jerusalem','Rome','Ephesus'],c:0,ref:'Revelation 1:9'},
+ {q:'What did Jesus say when John fell at His feet?',a:['Fear not; I am the first and the last','Go home','Write nothing','Leave Patmos'],c:0,ref:'Revelation 1:17'},
+ {q:'What will God wipe away in the new creation?',a:['All tears from their eyes','All memories','All languages','All seas only'],c:0,ref:'Revelation 21:4'},
+ {q:'Faith is the substance of things hoped for and the evidence of what?',a:['Things not seen','Things already owned','Roman law','Temple gold'],c:0,ref:'Hebrews 11:1'},
+ {q:'What should we lay aside to run the race with patience?',a:['Every weight and the sin that besets us','Our jobs','Our friends','All study'],c:0,ref:'Hebrews 12:1'},
+ {q:'Jesus Christ is the same yesterday, today, and ____.',a:['for ever','sometimes','in Judea only','until Rome falls'],c:0,ref:'Hebrews 13:8'},
+ {q:'The Lord is longsuffering, not willing that any should ____.',a:['perish','rule','travel','fast'],c:0,ref:'2 Peter 3:9'},
+ {q:'If any man be in Christ, he is a ____.',a:['new creature','better Pharisee','Roman citizen','temple guard'],c:0,ref:'2 Corinthians 5:17'},
+ {q:'He who began a good work in you will ____ it until the day of Jesus Christ.',a:['perform (finish)','forget','auction','hide'],c:0,ref:'Philippians 1:6'},
+
 ];
 /* ================= LEVELS ================= */
 const LEVELS=[
@@ -230,6 +248,30 @@ LEVELS.push(
   pts:[[-20,520],[160,520],[160,90],[380,90],[380,400],[600,400],[600,100],[820,100],[820,480],[980,480]],
   waves:[[['babylon',10]],[['babylon',12],['chariot',6]],[['shadow',14],['babylon',10]],[['babylon',16],['chariot',10]],[['giant',4],['babylon',14]],[['shadow',20],['babylon',16],['giant',3]],[['babylon',22],['chariot',14],['giant',5]],[['goliath',1],['shadow',24],['babylon',18]]],gold:460}
 );
+/* ===== EXTRA LEVELS (appended after Babylon) ===== */
+LEVELS.push(
+ {id:'nineveh',name:'Jonah & Nineveh',ref:'Jonah 3:5',verses:['Jonah 1:17','Jonah 3:5','Jonah 4:11'],win:'2 Peter 3:9',bg:'#d2b896',path:'#a88860',
+  story:'God sends Jonah to warn the great city of Nineveh. After the storm and the great fish, Jonah finally goes. The city believes God and turns from its evil way. Guard the streets while the call to repent goes out.',
+  pts:[[-20,80],[200,80],[200,500],[480,500],[480,160],[720,160],[720,480],[980,480]],
+  gold:480},
+ {id:'damascus',name:'The Road to Damascus',ref:'Acts 9:5',verses:['Acts 9:3','Acts 9:5','Acts 9:15'],win:'2 Corinthians 5:17',bg:'#cfc09a',path:'#9a8460',
+  story:'Saul of Tarsus breathes threats against the disciples. On the road to Damascus a light from heaven stops him, and the risen Lord calls him. Protect the road while the persecutor becomes a chosen vessel.',
+  pts:[[480,-20],[480,140],[200,140],[200,360],[700,360],[700,220],[880,220],[880,560],[480,560],[480,620]],
+  gold:500},
+ {id:'philippi',name:'Paul at Philippi',ref:'Acts 16:31',verses:['Acts 16:25','Acts 16:31','Philippians 4:13'],win:'Philippians 1:6',bg:'#c8c4a0',path:'#8a9070',
+  story:'In Philippi, Paul and Silas are beaten and jailed for the gospel. At midnight they pray and sing; an earthquake opens the doors. The jailer asks how to be saved. Hold the prison yard until dawn.',
+  pts:[[480,620],[480,480],[160,480],[160,200],[500,200],[500,80],[820,80],[820,400],[980,400]],
+  gold:520},
+ {id:'patmos',name:'John on Patmos',ref:'Revelation 1:9',verses:['Revelation 1:9','Revelation 1:17','Revelation 21:4'],win:'Revelation 21:4',bg:'#b8c0c8',path:'#708090',
+  story:'Exiled on the island of Patmos for the word of God, John hears a great voice and sees the risen Christ among the candlesticks. Stand firm on the rocky shore while the vision unfolds.',
+  pts:[[-20,300],[180,300],[180,100],[420,100],[420,480],[660,480],[660,160],[900,160],[900,500],[980,500]],
+  gold:540},
+ {id:'constantinople',name:'Streets of Constantinople',ref:'Hebrews 12:1',verses:['Hebrews 11:1','Hebrews 12:1','Hebrews 13:8'],win:'Hebrews 13:8',bg:'#d8c8a8',path:'#908070',
+  story:'Centuries after the apostles, believers still walk by faith in the great city of Constantinople — later called Istanbul. Crowded streets, markets and walls test perseverance. Keep the gospel path open as the city presses in from every side.',
+  pts:[[480,-20],[480,120],[140,120],[140,300],[480,300],[480,200],[820,200],[820,420],[200,420],[200,560],[700,560],[700,620]],
+  gold:580}
+);
+
 LEVELS[0].win='Romans 8:31';LEVELS[1].win='Isaiah 40:31';LEVELS[2].win='Philippians 4:13';
 function pathDist(P,x,y){let b=1e9;for(let d=0;d<P.tot;d+=8){const q=posAt(P,d);b=Math.min(b,Math.hypot(q.x-x,q.y-y))}return b}
 function autoSpots(pts){const P=segs(pts),out=[];for(let d=50;d<P.tot-30;d+=55){const a=posAt(P,d),b=posAt(P,d+6),l=Math.hypot(b.x-a.x,b.y-a.y)||1,nx=-(b.y-a.y)/l,ny=(b.x-a.x)/l;
@@ -243,10 +285,16 @@ const WAVES={
  elah:[[['spear',10]],[['raider',10],['spear',8]],[['raider',6],['spear',12],['chariot',2]],[['raider',8],['spear',12],['giant',2]],[['raider',8],['spear',14],['chariot',3],['giant',2]],[['raider',10],['spear',16],['goliath',1]]],
  gideon:[[['midian',10],['camel',2]],[['midian',12],['amalek',6]],[['midian',14],['camel',3]],[['amalek',10],['midian',12],['shadow',4]],[['midian',18],['camel',4],['giant',1]],[['midian',18],['shadow',8],['camel',4],['giant',2]],[['midian',22],['amalek',12],['camel',5],['prince',1]]],
  carmel:[[['raider',8],['baal',4]],[['spear',8],['baal',8]],[['raider',8],['baal',10],['chariot',3]],[['baal',10],['shadow',10]],[['babylon',8],['baal',12],['chariot',3],['giant',1]],[['baal',14],['shadow',12],['giant',2]],[['baal',16],['shadow',12],['giant',3]]],
- babylon:[[['babylon',10]],[['babylon',12],['chariot',3]],[['babylon',10],['shadow',12]],[['babylon',14],['chariot',4]],[['babylon',14],['shadow',6],['giant',2]],[['babylon',14],['shadow',16],['giant',3]],[['babylon',18],['shadow',8],['chariot',5],['giant',3]],[['babylon',16],['shadow',20],['bcaptain',1]]]
+ babylon:[[['babylon',10]],[['babylon',12],['chariot',3]],[['babylon',10],['shadow',12]],[['babylon',14],['chariot',4]],[['babylon',14],['shadow',6],['giant',2]],[['babylon',14],['shadow',16],['giant',3]],[['babylon',18],['shadow',8],['chariot',5],['giant',3]],[['babylon',16],['shadow',20],['bcaptain',1]]],
+
+ nineveh:[[['assyrian',10],['raider',6]],[['assyrian',12],['spear',8]],[['assyrian',14],['chariot',4]],[['shadow',10],['assyrian',12]],[['assyrian',16],['giant',2]],[['assyrian',18],['shadow',8],['giant',2]],[['whale',1],['assyrian',16],['shadow',10]]],
+ damascus:[[['roman',10],['raider',6]],[['roman',12],['spear',8]],[['roman',10],['chariot',5]],[['shadow',12],['roman',12]],[['roman',16],['giant',2]],[['roman',18],['shadow',10],['giant',2]],[['zealot',1],['roman',16],['shadow',12]]],
+ philippi:[[['roman',10],['spear',6]],[['roman',12],['amalek',6]],[['roman',10],['shadow',8]],[['roman',12],['chariot',4]],[['roman',14],['giant',2]],[['shadow',10],['roman',12],['giant',1]],[['jailer',1],['roman',12],['shadow',8]]],
+ patmos:[[['roman',10],['shadow',6]],[['roman',12],['shadow',8]],[['pirate',8],['roman',8]],[['shadow',10],['pirate',6]],[['roman',12],['giant',2]],[['pirate',8],['shadow',10],['giant',1]],[['dragon',1],['shadow',10],['roman',10]]],
+ constantinople:[[['byz',10],['roman',6]],[['byz',12],['shadow',8]],[['byz',12],['chariot',4]],[['byz',12],['shadow',10],['giant',1]],[['byz',14],['pirate',6],['giant',2]],[['byz',14],['shadow',10],['giant',2]],[['emperor',1],['byz',14],['shadow',8],['giant',1]],[['emperor',1],['byz',16],['shadow',10],['giant',2]]]
 };
 const BLURB={jericho:'Guard Israel\'s camp while the army keeps its strange orders.',redsea:'Hold back Egypt\'s pursuit until the people are safely across.',jerusalem:'Defend the builders until the city wall stands complete.',
- elah:'Hold the valley until the Philistine champion comes down himself.',gideon:'A night battle: a handful against a multitude.',carmel:'Protect the altar while the contest on the mountain unfolds.',babylon:'Stand firm in the capital of a foreign empire.'};
+ elah:'Hold the valley until the Philistine champion comes down himself.',gideon:'A night battle: a handful against a multitude.',carmel:'Protect the altar while the contest on the mountain unfolds.',babylon:'Stand firm in the capital of a foreign empire.',nineveh:'Carry the warning into a city that does not yet know mercy.',damascus:'Hold the road while a persecutor meets the Lord.',philippi:'Guard the prison until midnight praise breaks the chains.',patmos:'Stand with the exile who sees the Lord of glory.',constantinople:'Keep the streets open for a people walking by faith.'};
 LEVELS.forEach(L=>{L.waves=WAVES[L.id];L.blurb=BLURB[L.id]});
 /* ---- build spots: generated evenly along the whole road; each must sit off the road but cover a real stretch of it ---- */
 function spotBlocked(L,x,y){if(L.id==='jerusalem'&&((x>850&&y<200)||(y>530&&(x<250||(x>360&&x<680)))))return true;
@@ -265,7 +313,7 @@ function genSpots(L){const P=segs(L.pts),C=[];
 LEVELS.forEach(L=>L.spots=genSpots(L));
 
 LEVELS.forEach(L=>L.verses=L.verses.filter(v=>SCRIPTURE[v]));
-let DIFF=[1.15,.95,.95,.9,1,.65,.69];
+let DIFF=[1.15,.95,.95,.9,1,.65,.69,.6,.65,.68,.72,.78];
 const ENEMY={
  raider:{n:'Canaanite Raider',hp:60,sp:48,g:6,col:'#8a3b2a',r:10,em:'🗡️'},
  spear:{n:'Philistine Spearman',hp:120,sp:40,g:9,col:'#5a5a7a',r:11,em:'🛡️',armor:.3},
@@ -280,7 +328,16 @@ const ENEMY={
  giant:{n:'Enemy Champion',hp:900,sp:30,g:60,col:'#4a3020',r:18,em:'🪖',armor:.3,lives:5,champ:1},
  midian:{n:'Midianite Warrior',hp:85,sp:56,g:7,col:'#6a3a5a',r:10,em:''},
  prince:{n:'Oreb, Prince of Midian',hp:2000,sp:24,g:160,col:'#5a1a4a',r:20,em:'',armor:.3,lives:10,boss:1},
- bcaptain:{n:'Champion of Babylon',hp:2600,sp:20,g:200,col:'#1a2a6a',r:22,em:'',armor:.45,lives:10,boss:1}
+ bcaptain:{n:'Champion of Babylon',hp:2600,sp:20,g:200,col:'#1a2a6a',r:22,em:'',armor:.45,lives:10,boss:1},
+ assyrian:{n:'Assyrian Soldier',hp:200,sp:44,g:13,col:'#6a4a2a',r:12,em:'',armor:.25},
+ roman:{n:'Roman Legionary',hp:240,sp:40,g:15,col:'#8a3030',r:12,em:'',armor:.35},
+ pirate:{n:'Aegean Raider',hp:180,sp:70,g:12,col:'#2a4a5a',r:11,em:'',nb:1},
+ byz:{n:'City Guard',hp:260,sp:38,g:16,col:'#5a3a6a',r:12,em:'',armor:.3},
+ whale:{n:'Great Fish (omen)',hp:2400,sp:22,g:220,col:'#3a5a6a',r:26,em:'',armor:.2,lives:10,boss:1},
+ zealot:{n:'Saul the Persecutor',hp:2200,sp:28,g:200,col:'#6a2020',r:20,em:'',armor:.25,lives:10,boss:1},
+ jailer:{n:'Philippian Jailer',hp:2300,sp:24,g:220,col:'#4a4a5a',r:22,em:'',armor:.4,lives:10,boss:1},
+ dragon:{n:'Beast of the Vision',hp:2500,sp:26,g:240,col:'#3a1a4a',r:26,em:'',armor:.35,magres:-.2,lives:10,boss:1},
+ emperor:{n:'Imperial Enforcer',hp:2700,sp:22,g:260,col:'#7a5a1a',r:24,em:'',armor:.45,lives:10,boss:1}
 };
 /* ================= TOWERS ================= */
 const TOWERS={
@@ -304,9 +361,9 @@ const HEROES={
 };
 /* ================= SAVE ================= */
 const SKEY='wallsOfFaithSave1';
-let save={unlocked:1,stars:{},journal:[],hero:'joshua',sound:true};
+let save={unlocked:1,stars:{},journal:[],hero:'joshua',sound:true,ups:{},upAt:[]};
 try{Object.assign(save,JSON.parse(localStorage.getItem(SKEY)||'{}'))}catch(e){}
-if(typeof save.unlocked!=='number'||save.unlocked<1)save.unlocked=1;if(!Array.isArray(save.journal))save.journal=[];if(typeof save.stars!=='object'||!save.stars)save.stars={};if(!['joshua','deborah','moses'].includes(save.hero))save.hero='joshua';
+if(typeof save.unlocked!=='number'||save.unlocked<1)save.unlocked=1;if(!Array.isArray(save.journal))save.journal=[];if(!save.ups||typeof save.ups!=='object')save.ups={};if(!Array.isArray(save.upAt))save.upAt=[];if(typeof save.stars!=='object'||!save.stars)save.stars={};if(!['joshua','deborah','moses'].includes(save.hero))save.hero='joshua';
 function persist(){try{localStorage.setItem(SKEY,JSON.stringify(save))}catch(e){}}
 function unlockVerse(r){if(SCRIPTURE[r]&&!save.journal.includes(r)){save.journal.push(r);persist();toast('📜 Verse added to Journal: '+r)}}
 /* ================= AUDIO ================= */
@@ -321,18 +378,33 @@ function segs(pts){let s=[],tot=0;for(let i=0;i<pts.length-1;i++){const a=pts[i]
 function posAt(P,d){for(const g of P.s){if(d<=g.s+g.l){const t=(d-g.s)/g.l;return{x:g.a[0]+(g.b[0]-g.a[0])*t,y:g.a[1]+(g.b[1]-g.a[1])*t}}}const e=P.s[P.s.length-1].b;return{x:e[0],y:e[1]}}
 function edgePt(P,first){const m=34,ins=d=>{const q=posAt(P,d);return q.x>m&&q.x<W-m&&q.y>m&&q.y<H-m};
  if(first){for(let d=0;d<P.tot;d+=4)if(ins(d))return{...posAt(P,d+22),d:d+22}}else{for(let d=P.tot;d>0;d-=4)if(ins(d))return{...posAt(P,d-4),d:d-4}}return{...posAt(P,0),d:0}}
+function heroStats(hk){const b=HEROES[hk],u=save.ups||{};
+ const hp=b.hp+(u.hp||0)*40,dmg=b.dmg+(u.dmg||0)*4,cd=Math.max(10,b.cd-(u.cd||0)*3),resp=Math.max(8,15-(u.respawn||0)*2),aura=!!(u.aura);
+ return {...b,hp,dmg,cd,resp,aura}}
+const UP_OFFERS=[
+ [{id:'hp',n:'Stamina',d:'+40 max HP'},{id:'dmg',n:'Stronger Strikes',d:'+4 melee damage'},{id:'cd',n:'Quick Recovery',d:'Ability cools 3s faster'}],
+ [{id:'respawn',n:'Swift Return',d:'Respawn 2s faster'},{id:'hp',n:'Stamina',d:'+40 max HP'},{id:'aura',n:'Guarding Presence',d:'Nearby enemies move 15% slower'}],
+ [{id:'dmg',n:'Stronger Strikes',d:'+4 melee damage'},{id:'cd',n:'Quick Recovery',d:'Ability cools 3s faster'},{id:'hp',n:'Stamina',d:'+40 max HP'}],
+ [{id:'aura',n:'Guarding Presence',d:'Nearby enemies move 15% slower'},{id:'respawn',n:'Swift Return',d:'Respawn 2s faster'},{id:'dmg',n:'Stronger Strikes',d:'+4 melee damage'}],
+ [{id:'hp',n:'Stamina',d:'+40 max HP'},{id:'cd',n:'Quick Recovery',d:'Ability cools 3s faster'},{id:'respawn',n:'Swift Return',d:'Respawn 2s faster'}]
+];
+const UP_AFTER=new Set([2,4,6,8,10]); // 0-based level indices after which to offer
+function offerUpgrade(done){const n=(save.upAt||[]).length;if(n>=UP_OFFERS.length)return done();
+ const opts=UP_OFFERS[n];
+ showOv(`<h2>⭐ Hero Upgrade</h2><p style="text-align:center">Choose one blessing for <b>${HEROES[save.hero].n}</b> (saved with your progress).</p><div class="grid">${opts.map((o,i)=>`<button class="btn" data-u="${o.id}" style="text-align:left"><b>${o.n}</b><br><small>${o.d}</small></button>`).join('')}</div>`);
+ const cd=$('card');cd.onclick=ev=>{const b=ev.target.closest('button[data-u]');if(!b||!cd.contains(b))return;const id=b.dataset.u;save.ups[id]=(save.ups[id]||0)+1;save.upAt.push(id);persist();snd(660,.25,'sine',.05);toast('Hero upgraded: '+opts.find(o=>o.id===id).n);hideOv();done()}}
 function startLevel(i,heroK){
  const L=LEVELS[i];G={li:i,L,P:segs(L.pts),gold:L.gold,lives:20,wave:0,spawnQ:[],inWave:false,enemies:[],towers:[],shots:[],fx:[],soldiers:[],t:0,
   spots:L.spots.map(s=>({x:s[0],y:s[1],tw:null})),hero:null,prayCD:0,quizzed:0,correct:0,asked:[],over:false,nextT:null,leakT:0,banner:null,mark:null,quizOpen:false};
  G.ent=edgePt(G.P,true);G.end=edgePt(G.P,false);
- const hk=HEROES[heroK]?heroK:save.hero,h=HEROES[hk];const p=posAt(G.P,G.P.tot*.45);
- G.hero={k:hk,...h,x:p.x,y:p.y+30,px:p.x,py:p.y+30,mode:'idle',tgt:null,mhp:h.hp,hp:h.hp,cd:0,atk:0,dead:0,fx:0,fy:0,face:1};
+ const hk=HEROES[heroK]?heroK:save.hero,h=heroStats(hk);const p=posAt(G.P,G.P.tot*.45);
+ G.hero={k:hk,...h,x:p.x,y:p.y+30,px:p.x,py:p.y+30,mode:'idle',tgt:null,mhp:h.hp,hp:h.hp,cd:0,atk:0,dead:0,fx:0,fy:0,face:1,resp:h.resp,aura:h.aura};
  toasts=[];paused=false;hideCtx();
  document.body.classList.add('play');$('bHeroImg').src=portrait(hk,64);$('bAbilLb').textContent=h.ab;$('bAbilIc').textContent=h.em||'⚔️';setGround(L);hideOv();L.verses.forEach(unlockVerse);updHud();resize();tryFS();showIOSHint();
 }
 const _hud={};function setT(id,v){if(_hud[id]!==v){_hud[id]=v;$(id).textContent=v}}
 function updHud(){if(!G)return;setT('hLives',String(Math.max(0,G.lives)));setT('hGold',String(Math.floor(G.gold)));setT('hWave',G.wave+'/'+G.L.waves.length);
- const h=G.hero,hd=HEROES[h.k],dead=h.dead>0,hpPie=dead?h.dead/15:0,abPie=h.cd/hd.cd;
+ const h=G.hero,hd=HEROES[h.k],dead=h.dead>0,hpPie=dead?h.dead/(h.resp||15):0,abPie=h.cd/(heroStats(h.k).cd);
  $('bHeroCd').style.setProperty('--p',(hpPie*100).toFixed(0));setT('bHeroCd',dead?'✝ '+Math.ceil(h.dead):'');
  const bar=$('bHeroHp');if(bar){bar.style.width=Math.max(0,Math.min(1,h.hp/h.mhp))*100+'%';bar.style.background=h.hp/h.mhp<.35?'#e0403a':'#4c4'}
  $('bAbilCd').style.setProperty('--p',((dead?1:abPie)*100).toFixed(0));setT('bAbilCd',dead?'':h.cd>0?String(Math.ceil(h.cd)):'');$('bAbil').disabled=h.cd>0||dead;
@@ -371,7 +443,7 @@ function update(dt){
   if(e.slowT<=0)e.slow=0;e.shred-=dt;if(e.burn>0){e.burn-=dt;e.hp-=e.burnD*dt;if(Math.random()<dt*6)G.fx.push({x:e.x+(Math.random()-.5)*10,y:e.y-10,t:.6,ember:1})}
   let moving=false;
   if(e.stun>0){e.stun-=dt}else if(e.blk&&e.blk.hp>0&&!(e.blk.dead>0)){e.atk-=dt;if(e.atk<=0){e.atk=1;const b=e.blk,dm=8+e.mhp*.03;b.hp-=dm;b.hitT=.18;b.hitF=b.x>=e.x?1:-1;dmgNum(b,dm,'#ff8a7a');if(b.tw)G.fx.push({x:(b.x+e.x)/2,y:b.y-6,t:.2,spark:1})}}
-  else{e.blk=null;e.d+=e.sp*(1-e.slow)*dt;moving=true}
+  else{e.blk=null;let sp=e.sp*(1-e.slow);const hh=G.hero;if(hh&&hh.aura&&hh.dead<=0&&Math.hypot(e.x-hh.x,e.y-hh.y)<110)sp*=.85;e.d+=sp*dt;moving=true}
   const p=posAt(G.P,e.d);if(Math.abs(p.x-e.x)>.01&&e.x>-40)e.face=p.x>e.x?1:-1;e.x=p.x;e.y=p.y;if(e.blk&&Math.abs(e.blk.x-e.x)>2)e.face=e.blk.x>e.x?1:-1;if(e.hitT>0)e.hitT-=dt;
   if(moving){e.dt-=dt;if(e.dt<=0){e.dt=.3+Math.random()*.25;if(e.x>0&&e.x<W)G.fx.push({x:e.x-(e.face||1)*6,y:e.y+6,t:.45,dust:e.r>12?1.6:1})}}
   if(e.d>=G.P.tot){e.gone=1;const n=e.lives||1;G.lives-=n;G.leakT=.7;G.fx.push({x:G.end.x,y:G.end.y-40,t:1,txt:'-'+n+' ❤',col:'#ff5a4a'});snd(110,.3,'triangle',.08);if(G.lives<=0){G.lives=0;endLevel(false)}}
@@ -404,7 +476,7 @@ function update(dt){
  // hero: walks to her post, then engages / chases enemies near it and returns
  const h=G.hero;h.cd=Math.max(0,h.cd-dt);if(h.hitT>0)h.hitT-=dt;
  if(h.dead>0){h.dead-=dt;if(h.dead<=0){h.dead=0;h.hp=h.mhp;h.x=h.px=h.fx;h.y=h.py=h.fy;h.mode='idle';G.fx.push({x:h.x,y:h.y,t:.8,ring:50})}}else{
-  if(h.hp<=0){h.dead=15;h.fx=h.x;h.fy=h.y;releaseFrom(h);h.tgt=null;toast(h.n+' has fallen — returning soon…')}
+  if(h.hp<=0){h.dead=h.resp||15;h.fx=h.x;h.fy=h.y;releaseFrom(h);h.tgt=null;toast(h.n+' has fallen — returning soon…')}
   else{const step=(tx,ty,sp)=>{const dx=tx-h.x,dy=ty-h.y,l=Math.hypot(dx,dy);if(l<1)return 0;if(Math.abs(dx)>1)h.face=dx>0?1:-1;const m=Math.min(l,sp*dt);h.x+=dx/l*m;h.y+=dy/l*m;return l};
    h.moving=false;
    if(h.mode==='move'){h.moving=step(h.px,h.py,120)>4;if(!h.moving)h.mode='idle'}
@@ -419,7 +491,7 @@ function dmgNum(e,d,col){if(d>=1)G.fx.push({x:e.x+(Math.random()-.5)*10,y:e.y-22
 // melee timing: wind-up over the last .3s before a hit (peak = impact), recoil for .2s after
 function swingA(tm,per){if(tm<.3)return (.3-Math.max(0,tm))/.3*.5;if(tm>per-.2)return .5+(per-tm)/.2*.5;return 0}
 function crewOrigin(t,tg){const sp=towerSprite(t.k,t.br!=null?3:t.lvl,t.br);let bi=0,bd=1e9;sp.crew.forEach((dx,i)=>{const d=Math.abs(t.x+dx-tg.x);if(d<bd){bd=d;bi=i}});const dx=sp.crew[bi]||0,f=tg.x>=t.x+dx?1:-1;return{i:bi,x:t.x+dx+f*7,y:t.y+10-sp.top-17}}
-function heroAbility(){const h=G.hero;if(h.cd>0||h.dead>0)return;h.cd=HEROES[h.k].cd;snd(520,.5,'triangle',.06);
+function heroAbility(){const h=G.hero;if(h.cd>0||h.dead>0)return;h.cd=heroStats(h.k).cd;snd(520,.5,'triangle',.06);
  if(h.k==='joshua'){G.fx.push({x:h.x,y:h.y,t:.6,ring:120});for(const e of G.enemies)if(Math.hypot(e.x-h.x,e.y-h.y)<120){dmgNum(e,hurt(e,70,true));e.stun=Math.max(e.stun,e.boss||e.champ?.5:1.5)}toast('Joshua: "Shout; for the LORD hath given you the city." (Joshua 6:16)')}
  if(h.k==='deborah'){G.fx.push({x:h.x,y:h.y,t:.8,ring:170,blue:1});let n=0;for(const e of G.enemies)if(Math.hypot(e.x-h.x,e.y-h.y)<170){dmgNum(e,hurt(e,35,true));e.slow=Math.max(e.slow,.35);e.slowT=2.5;if(n++<6)G.fx.push({x:e.x,y:e.y,t:.35,bolt:1})}toast('Deborah: "Up; for this is the day…" (Judges 4:14)')}
  if(h.k==='moses'){G.fx.push({x:h.x,y:h.y,t:.8,ring:200,blue:1});for(const e of G.enemies)if(Math.hypot(e.x-h.x,e.y-h.y)<200){e.d=Math.max(0,e.d-(e.boss||e.champ?30:80));e.slow=Math.max(e.slow,.5);e.slowT=3}toast('Moses stretched out his hand over the sea (Exodus 14:21)')}}
@@ -467,6 +539,8 @@ function person(x,y,s,o){const f=o.face||1,t=o.t||0,walk=o.walk?Math.sin(t*10):0
  else if(o.head==='cone'){cx.beginPath();cx.moveTo(-7.5,hy-1.5);cx.lineTo(0,hy-15.5);cx.lineTo(7.5,hy-1.5);cx.closePath();cx.fill();cx.stroke();cx.fillStyle='rgba(0,0,0,.2)';cx.beginPath();cx.moveTo(0,hy-15.5);cx.lineTo(7.5,hy-1.5);cx.lineTo(2,hy-1.5);cx.fill();cx.fillStyle=o.trim||'#e0c060';cx.fillRect(-7.5,hy-3,15,1.8)}
  else if(o.head==='nemes'){cx.beginPath();cx.moveTo(-7,hy+1);cx.lineTo(-8,hy+9);cx.lineTo(-3.5,hy+6.5);cx.lineTo(-3,hy-6.5);cx.quadraticCurveTo(3,hy-9.5,7.5,hy-3);cx.lineTo(7.8,hy-2.2);cx.lineTo(-6.6,hy-3);cx.closePath();cx.fill();cx.stroke();cx.fillStyle=o.hc2||'#2a4a8a';cx.fillRect(-7,hy-4,14,1.6);cx.fillRect(-7.6,hy+2,3.6,1.3);cx.fillRect(-7.8,hy+5,3.6,1.3)}
  else if(o.head==='hood'||o.head==='veil'){cx.beginPath();cx.arc(0,hy,hr+1.3,Math.PI*1.02,Math.PI*1.98);cx.arc(0,hy+1.2,hr-1.2,Math.PI*1.9,Math.PI*1.1,true);cx.closePath();cx.fill();cx.stroke();if(o.head==='veil'){cx.fillStyle=o.hc2||'#e8d8a8';cx.fillRect(-7,hy-6.4,14,1.9);cx.strokeRect(-7,hy-6.4,14,1.9)}}
+ else if(o.head==='crown'){cx.beginPath();cx.arc(0,hy-.6,hr+.5,Math.PI*1.05,Math.PI*1.95);cx.closePath();cx.fill();cx.stroke();cx.fillStyle=o.hc2||'#ffe070';for(const x of[-5,0,5]){cx.beginPath();cx.moveTo(x,hy-7);cx.lineTo(x-2,hy-11);cx.lineTo(x+2,hy-11);cx.closePath();cx.fill()}}
+ else if(o.head==='band'){cx.fillRect(-7.5,hy-4,15,3);cx.strokeRect(-7.5,hy-4,15,3)}
  else if(o.head==='turban'){cx.beginPath();cx.ellipse(0,hy-5,8.4,4.4,0,0,7);cx.fill();cx.stroke();cx.strokeStyle='rgba(0,0,0,.25)';cx.beginPath();cx.moveTo(-6,hy-6);cx.quadraticCurveTo(0,hy-2,6,hy-7);cx.stroke();if(o.hc2){cx.fillStyle=o.hc2;cx.beginPath();cx.arc(0,hy-6.5,1.6,0,7);cx.fill()}}
  else if(o.head==='hair'){cx.beginPath();cx.arc(0,hy-.5,hr+.4,Math.PI*1.05,Math.PI*1.9);cx.quadraticCurveTo(2,hy-4.5,-6.5,hy-1);cx.closePath();cx.fill();cx.stroke()}
  // front arm + weapon
@@ -492,6 +566,15 @@ const LOOK={
  egypt:{robe:'#f0e6c8',trim:'#2a6aa0',head:'nemes',hc:'#e8c040',hc2:'#2a4a8a',weapon:'spear',skin:'#a86a3a',armor:'#c9a03a',mean:1},
  amalek:{robe:'#6a2a3a',head:'turban',hc:'#c8b080',weapon:'bow',skin:'#a87048',beard:'#1a1008',mean:1},
  midian:{robe:'#5a3a5a',trim:'#c89a40',head:'turban',hc:'#3a2a3a',hc2:'#d0a040',weapon:'sword',skin:'#a87048',beard:'#1a1008',mean:1,shield:'#6a4a2a'},
+ assyrian:{robe:'#6a4a2a',armor:'#8a6a3a',head:'helm',hc:'#9a7a4a',weapon:'spear',shield:'#5a3a1a',mean:1},
+ roman:{robe:'#8a3030',armor:'#c0c0c0',head:'helm',hc:'#b0b0b0',weapon:'sword',shield:'#8a2020',mean:1},
+ pirate:{robe:'#2a4a5a',head:'band',hc:'#1a3038',weapon:'sword',mean:1},
+ byz:{robe:'#5a3a6a',armor:'#c9a03a',head:'helm',hc:'#d0b050',weapon:'spear',shield:'#4a2a5a'},
+ whale:{robe:'#3a5a6a',head:'helm',hc:'#4a6a7a',weapon:'spear',mean:1},
+ zealot:{robe:'#6a2020',armor:'#8a5a2a',head:'turban',hc:'#e8dcc0',weapon:'sword',mean:1},
+ jailer:{robe:'#4a4a5a',armor:'#7a7a8a',head:'helm',hc:'#9a9aaa',weapon:'sword',shield:'#3a3a4a',mean:1},
+ dragon:{robe:'#3a1a4a',armor:'#6a3a7a',head:'helm',hc:'#8a4a9a',weapon:'flame',mean:1},
+ emperor:{robe:'#7a5a1a',armor:'#e0c060',head:'crown',hc:'#f0d070',cape:'#6a1a1a',weapon:'sword',shield:'#5a4010',mean:1},
  babylon:{robe:'#2a3a7a',armor:'#c9a03a',trim:'#e0c060',head:'cone',hc:'#c9a03a',weapon:'spear',shield:'#1a2a5a',beard:'#1a1008',mean:1},
  shadow:{robe:'#2a2030',head:'hood',hc:'#120c18',weapon:'axe',skin:'#4a3a5a',leg:'#1a1020',mean:1},
  giant:{robe:'#4a3020',armor:'#8a8a8a',head:'helm',hc:'#9a9a9a',weapon:'spear',shield:'#8a6a2a',beard:'#2a1a0a',mean:1}
@@ -508,7 +591,7 @@ const HLOOK={
  moses:{belt:'#3a2a1a',robe:'#7a4a2a',trim:'#e8dcc0',head:'hood',hc:'#d8c8a0',weapon:'staff',beard:'#eee',cape:'#5a3a1a',crownGlow:1}
 };
 const VAR=['#8a4a2a','#6a5a3a','#7a3a3a','#5a4a6a','#8a6a3a','#4a5a3a'];
-const ESC={giant:1.7,goliath:2.4,prince:1.9,bcaptain:2.1};
+const ESC={giant:1.7,goliath:2.4,prince:1.9,bcaptain:2.1,whale:2.3,zealot:1.85,jailer:1.9,dragon:2.2,emperor:2.15};
 function eTop(e){return e.k==='camel'||e.k==='chariot'?40:(ESC[e.k]||.9)*31+4}
 function drawEnemy(e){if(e.hitT>0){const ox=e.x;e.x-=(e.face||1)*e.hitT*8;drawEnemy0(e);e.x=ox;return}drawEnemy0(e)}
 function drawEnemy0(e){const f=e.face||1,mv=!e.blk&&!e.stun,at=e.blk&&!e.stun?swingA(e.atk,1):0;e.vi=e.vi??Math.floor(Math.random()*6);
@@ -521,6 +604,7 @@ function drawEnemy0(e){const f=e.face||1,mv=!e.blk&&!e.stun,at=e.blk&&!e.stun?sw
  if(e.k==='goliath'){person(e.x,e.y+6,2.4,{...LOOK.giant,armor:'#b0a060',trim:'#d0b040',hc:'#c0b060',cape:'#5a1a1a',face:f,t:G.t,walk:mv,atk:at});return}
  if(e.k==='prince'){person(e.x,e.y+6,1.9,{...LOOK.midian,robe:'#5a1a4a',trim:'#f0c040',hc:'#e8c040',hc2:'#c02020',cape:'#3a0a2a',armor:'#c9a03a',face:f,t:G.t,walk:mv,atk:at});return}
  if(e.k==='bcaptain'){person(e.x,e.y+6,2.1,{...LOOK.babylon,robe:'#1a2a6a',cape:'#6a1a1a',armor:'#e0b840',face:f,t:G.t,walk:mv,atk:at});return}
+ if(e.k==='whale'||e.k==='zealot'||e.k==='jailer'||e.k==='dragon'||e.k==='emperor'){person(e.x,e.y+6,ESC[e.k]||1.9,{...(LOOK[e.k]||LOOK.babylon),face:f,t:G.t,walk:mv,atk:at});return}
  if(e.k==='baal'){cx.strokeStyle='rgba(255,140,60,'+(.3+.2*Math.sin(G.t*4))+')';cx.lineWidth=1.5;cx.beginPath();cx.ellipse(e.x,e.y+6,24,9,0,0,7);cx.stroke();person(e.x,e.y+6,.95,{robe:'#a03a1a',trim:'#f0a020',head:'cone',hc:'#e07020',weapon:'flame',beard:'#1a1008',sash:'#f0d040',face:f,t:G.t,walk:mv,mean:1});return}
  if(e.k==='chariot'){cx.save();cx.translate(e.x,e.y+6);cx.scale(f,1);shadow(0,4,20);const b=Math.sin(G.t*14)*1.5;cx.lineCap='round';
   cx.strokeStyle=OLC;cx.lineWidth=3.6;cx.beginPath();cx.moveTo(6,-7);cx.lineTo(6+b*2,0);cx.moveTo(15,-7);cx.lineTo(15-b*2,0);cx.stroke();cx.strokeStyle='#5a3418';cx.lineWidth=2.2;cx.stroke();
@@ -943,7 +1027,7 @@ function title(){G=null;paused=false;hideUI();hideCtx();const has=Object.keys(gs
  $('ov').style.alignItems='flex-end';$('ov').style.background='transparent';
  $('card').onclick=ev=>{const b=ev.target.closest('button');if(!b||b.disabled)return;if(b.id==='tP')menu();else if(b.id==='tL')slots('load',title);else if(b.id==='mJ')journal(title);else if(b.id==='mH')howto();else if(b.id==='mSt')studyPick(title);else if(b.id==='mA')about()}}
 /* ----- illustrated Holy Land map ----- */
-const NODES={carmel:[250,120,'🔥'],gideon:[330,150,'🏺'],jericho:[392,262,'🎺'],jerusalem:[345,285,'🧱'],elah:[282,300,'🪨'],redsea:[150,430,'🌊'],babylon:[700,230,'🦁']};
+const NODES={carmel:[250,120,'🔥'],gideon:[330,150,'🏺'],jericho:[392,262,'🎺'],jerusalem:[345,285,'🧱'],elah:[282,300,'🪨'],redsea:[150,430,'🌊'],babylon:[700,230,'🦁'],nineveh:[620,160,'🐋'],damascus:[560,200,'⚡'],philippi:[480,110,'⛓️'],patmos:[200,200,'🏝️'],constantinople:[520,90,'🏛️']};
 let MAPI=null;
 function mapImg(){if(MAPI)return MAPI;const c=document.createElement('canvas');c.width=800;c.height=480;const g=c.getContext('2d'),R=rng(4242);
  g.fillStyle='#e6d2a0';g.fillRect(0,0,800,480);for(let i=0;i<60;i++){g.fillStyle=`rgba(${R()<.5?'255,245,215':'170,130,70'},.15)`;g.beginPath();g.ellipse(R()*800,R()*480,40+R()*90,14+R()*30,0,0,7);g.fill()}
@@ -1002,7 +1086,7 @@ function about(){showOv(`<h1>About & Credits</h1><p><b>Walls of Faith</b> is a n
 <p>Story summaries paraphrase Joshua 2–6, Exodus 14–15, Nehemiah 1–6, Judges 4–7, 1 Samuel 17 and 1 Kings 18. Please read the full passages in your Bible!</p>
 <p>Enemies represent the historical opponents in these accounts and "shadows" symbolize spiritual opposition (Ephesians 6:11-12); no harm toward any people today is intended.</p>
 <p>Graphics drawn in code; sounds synthesized with WebAudio. Progress saved in your browser.</p><div class="grid"><button class="btn" id="rs">🗑 Reset Progress</button><button class="btn" id="bk">← Back</button></div>`);
- $('card').onclick=ev=>{if(ev.target.id==='bk')title();if(ev.target.id==='rs'&&confirm('Reset all progress?')){save={unlocked:1,stars:{},journal:[],hero:'joshua',sound:true};persist();menu()}}}
+ $('card').onclick=ev=>{if(ev.target.id==='bk')title();if(ev.target.id==='rs'&&confirm('Reset all progress?')){save={unlocked:1,stars:{},journal:[],hero:'joshua',sound:true,ups:{},upAt:[]};persist();menu()}}}
 /* ================= STUDY (lessons teach every quiz answer) ================= */
 const STUDY={
 jericho:[
@@ -1047,6 +1131,37 @@ babylon:[
  {t:'Writing on the Wall',sc:{p:'hand',ppl:['L:babylon']},txt:'At King Belshazzar\'s feast a hand wrote MENE, MENE, TEKEL, UPHARSIN on the wall. Daniel explained it: God had numbered <b>his kingdom</b>, and it <b>was finished</b> (5:25-28). That night the king was slain.',qs:[60]},
  {t:'Daniel Keeps Praying',sc:{p:'window',ppl:['H:moses']},txt:'Under King Darius a decree banned prayer to anyone but the king. Daniel <b>kept praying to God</b>, kneeling <b>three</b> times a day by windows open toward Jerusalem (6:10). For that he was thrown to the lions (6:16).',qs:[55,56]},
  {t:'The Lions\' Mouths Shut',sc:{p:'lions',ppl:['H:moses']},txt:'At dawn the worried king ran to the den and found Daniel alive. Daniel\'s own explanation comes first below; after it, Micah\'s summary, the words this whole campaign closes with.',v:'Daniel 6:22',x:'Micah 6:8',qs:[59,30]}],
+
+nineveh:[
+ {t:'The Great Fish',sc:{p:'sea',ppl:['H:moses']},txt:'Jonah fled from God\'s call, but a storm stopped the ship. The LORD had prepared <b>a great fish</b> that swallowed Jonah. He was inside it for <b>three days and three nights</b> before being set on dry land.',v:'Jonah 1:17',qs:[63]},
+ {t:'Nineveh Believes',sc:{p:'city',ppl:['C:trump','C:wall']},txt:'When Jonah finally preached, the people of Nineveh <b>believed God</b>. From the greatest to the least they proclaimed a fast and put on sackcloth — a citywide turn to God.',v:'Jonah 3:5',qs:[64]},
+ {t:'God\'s Compassion',sc:{p:'sun',ppl:['H:joshua']},txt:'Jonah was angry that God spared the city. The LORD answered with compassion for <b>more than sixscore thousand</b> who could not tell right from left, and also much cattle. Mercy is wider than Jonah\'s anger.',v:'Jonah 4:11',qs:[65]},
+ {t:'Patient Toward All',sc:{p:'sun',ppl:['H:deborah']},txt:'The same heart of God appears later: He is not slow about His promise, but patient, not willing that any should perish. Win here to keep that reminder:',v:'2 Peter 3:9',qs:[]}
+],
+damascus:[
+ {t:'Light on the Road',sc:{p:'sun',ppl:['L:roman']},txt:'Saul journeyed toward Damascus to arrest believers. Near the city, <b>a light from heaven</b> suddenly shone around him and he fell to the ground.',v:'Acts 9:3',qs:[66]},
+ {t:'Who Art Thou, Lord?',sc:{p:'sun',ppl:['H:joshua','L:roman']},txt:'Saul asked who was speaking. The Lord answered, "<b>I am Jesus whom thou persecutest</b>." Opposing the church was opposing Christ Himself.',v:'Acts 9:5',qs:[67]},
+ {t:'A Chosen Vessel',sc:{p:'tent',ppl:['H:moses']},txt:'The Lord told Ananias to go to Saul, for he was a <b>chosen vessel</b> to bear Jesus\' name before Gentiles, kings and Israel. The persecutor would become a preacher.',v:'Acts 9:15',qs:[68]},
+ {t:'New Creation',sc:{p:'sun',ppl:['H:deborah']},txt:'In Christ the old life passes away. Anyone in Christ is a new creature — the victory verse for this road:',v:'2 Corinthians 5:17',qs:[78]}
+],
+philippi:[
+ {t:'Midnight Praise',sc:{p:'ruin',ppl:['C:wall','C:trump']},txt:'Beaten and locked in the inner prison, Paul and Silas did not despair. <b>At midnight</b> they prayed and sang praises to God, and the prisoners heard them.',v:'Acts 16:25',qs:[69]},
+ {t:'Believe on the Lord',sc:{p:'tent',ppl:['H:joshua']},txt:'After the earthquake the terrified jailer asked how to be saved. They answered: "<b>Believe on the Lord Jesus Christ</b>, and thou shalt be saved, and thy house."',v:'Acts 16:31',qs:[70]},
+ {t:'Strength in Christ',sc:{p:'sun',ppl:['H:moses']},txt:'Later Paul wrote to this same church that he could do all things through Christ who strengthened him — a line you already know from Carmel\'s neighborhood of letters:',v:'Philippians 4:13',qs:[]},
+ {t:'He Will Finish It',sc:{p:'sun',ppl:['H:deborah']},txt:'Paul was confident that God, who began a good work in the Philippians, would carry it through to the day of Christ. That assurance is this level\'s reward:',v:'Philippians 1:6',qs:[79]}
+],
+patmos:[
+ {t:'Exile for the Word',sc:{p:'sea',ppl:['H:moses']},txt:'John calls himself a brother and companion in tribulation. He was on the isle called <b>Patmos</b> for the word of God and the testimony of Jesus Christ.',v:'Revelation 1:9',qs:[71]},
+ {t:'Fear Not',sc:{p:'sun',ppl:['H:joshua']},txt:'When John saw the risen Lord he fell as dead. Jesus laid His right hand on him and said, "<b>Fear not; I am the first and the last</b>."',v:'Revelation 1:17',qs:[72]},
+ {t:'No More Tears',sc:{p:'sun',ppl:['H:deborah']},txt:'The vision ends in hope: God will wipe away <b>all tears</b>; death, sorrow, crying and pain will be gone, for the former things have passed away.',v:'Revelation 21:4',qs:[73]},
+ {t:'The Same Forever',sc:{p:'sun',ppl:['C:trump']},txt:'Through every age the church holds that Jesus Christ is the same yesterday, today and forever — keep that when the city streets press hard:',v:'Hebrews 13:8',qs:[]}
+],
+constantinople:[
+ {t:'Faith Defined',sc:{p:'city',ppl:['C:wall','C:sling']},txt:'Hebrews reminds believers what faith is: the <b>substance of things hoped for</b>, the evidence of things not seen. Empires change; this definition does not.',v:'Hebrews 11:1',qs:[74]},
+ {t:'Run with Patience',sc:{p:'city',ppl:['H:joshua','C:trump']},txt:'Surrounded by a great cloud of witnesses, we are told to lay aside every weight and the sin that so easily besets us, and to <b>run with patience</b> the race set before us.',v:'Hebrews 12:1',qs:[75]},
+ {t:'Christ Unchanging',sc:{p:'city',ppl:['H:deborah']},txt:'In a city of councils and emperors, the letter to the Hebrews still anchors the church: <b>Jesus Christ the same</b> yesterday, and today, and forever.',v:'Hebrews 13:8',qs:[76]},
+ {t:'Patient Toward All',sc:{p:'sun',ppl:['H:moses']},txt:'God\'s patience toward a repenting city echoes Nineveh: He is longsuffering, not willing that any should perish. Hold that hope in the streets:',v:'2 Peter 3:9',qs:[77]}
+],
 basics:[
  {t:'In the Beginning',sc:{p:'sun',ppl:[]},txt:'The Bible\'s first book is <b>Genesis</b> ("beginnings"). It opens with creation:',v:'Genesis 1:1',qs:[33]},
  {t:'God So Loved the World',sc:{p:'sun',ppl:['H:moses','C:sling']},txt:'Jesus spoke these words to Nicodemus, a Pharisee who came to Him by night (John 3:1-2). It may be the most quoted sentence in all of Scripture:',v:'John 3:16',qs:[28]},
@@ -1111,7 +1226,7 @@ function endLevel(win){if(G.over)return;G.over=true;paused=false;hideCtx();const
  const d=gsAll();if(d.slots.auto&&d.slots.auto.li===li){delete d.slots.auto;try{localStorage.setItem(GKEY,JSON.stringify(d))}catch(e){}}
  showOv(`<h1>${win?'🏆 Victory!':'The line has fallen'}</h1>${win?`<p style="text-align:center;font-size:2em;margin:0">${'⭐'.repeat(G.lives>=18?3:G.lives>=10?2:1)}</p>`:'<p style="text-align:center">Take heart and try again.</p>'}<p style="text-align:center">Quiz: ${G.correct}/${G.quizzed} correct · ❤ ${Math.max(0,G.lives)} left</p>
  <div class="grid">${win?'<button class="btn" id="cn" style="font-size:18px">▶ Continue</button>':''}<button class="btn" id="rt">↻ Retry</button>${win?'':'<button class="btn" id="cn">🗺 Map</button>'}</div>${win?verseBox(L.win):''}${reviewList()}`);
- const cd=$('card');cd.onclick=ev=>{const b=ev.target.closest('button');if(!b||!cd.contains(b))return;if(b.id==='rt'){$('card').onclick=null;startLevel(li)}if(b.id==='cn')menu(win?Math.min(li+1,save.unlocked-1):li)}}
+ const cd=$('card');cd.onclick=ev=>{const b=ev.target.closest('button');if(!b||!cd.contains(b))return;if(b.id==='rt'){$('card').onclick=null;startLevel(li)}if(b.id==='cn'){const go=()=>menu(win?Math.min(li+1,LEVELS.length-1):li);if(win&&UP_AFTER.has(li))offerUpgrade(go);else go()}}}
 save.v=4;persist();title();requestAnimationFrame(loop);
 window.__game={startLevel,startWave,get G(){return G},update,menu,title,build,upgrade,heroAbility,pray,LEVELS,TOWERS,STUDY,QUIZ,QSTUDY,study,studyPick,intro,showQuiz,setDiff:d=>DIFF=d,gameMenu,resume,slots,snapshot,loadSnap,autosave,gsAll,waveBtnPos,waveBtnOn,setHeroPost,endLevel,ENEMY,HEROES,BLURB,genSpots,spotCov,beginLevel};
 </script></body></html>
