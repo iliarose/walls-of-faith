@@ -30,12 +30,12 @@ html,body{margin:0;height:100%;height:100dvh;background:#140e08 radial-gradient(
 #ctx .btn{display:block;width:100%;margin:4px 0;font-size:13px;text-align:left}
 /* ===== Left rail HUD (never overlaps canvas) ===== */
 #app{position:fixed;inset:0;display:flex;flex-direction:row;align-items:stretch;background:var(--ground,#d8c08a)}
-#rail{display:none;flex-direction:column;align-items:center;justify-content:flex-start;gap:6px;width:var(--rail,64px);padding:max(6px,env(safe-area-inset-top)) 4px max(6px,env(safe-area-inset-bottom));padding-left:max(4px,env(safe-area-inset-left));box-sizing:border-box;background:linear-gradient(180deg,#5a4220ee,#2e1c0cee);border-right:2px solid #d0a84a;box-shadow:inset -1px 0 0 #8a6a3a,4px 0 14px #0006;z-index:5;overflow-y:auto;overflow-x:hidden;flex-shrink:0}
+#rail{display:none;flex-direction:column;align-items:center;justify-content:flex-start;gap:6px;width:var(--rail,64px);padding:max(6px,env(safe-area-inset-top)) 4px max(6px,env(safe-area-inset-bottom));padding-left:max(4px,env(safe-area-inset-left));box-sizing:border-box;background:linear-gradient(180deg,#5a4220,#2e1c0c);border-right:2px solid #d0a84a;box-shadow:inset -1px 0 0 #8a6a3a,4px 0 14px #0006;z-index:5;overflow-y:auto;overflow-x:hidden;flex-shrink:0}
 #rail .stat{display:flex;flex-direction:column;align-items:center;justify-content:center;color:#ffe9a8;font:bold 13px Georgia;line-height:1.15;min-height:44px;width:100%;text-align:center}
 #rail .stat .ic{font-size:16px;line-height:1}#rail .stat .v{font-size:14px}
 #rail .sep{width:70%;height:1px;background:#d0a84a66;margin:2px 0}
 #bMenu{width:48px;height:48px;min-width:44px;min-height:44px;border-radius:50%;padding:0;font-size:18px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:auto}
-#wrap{position:relative;flex:1;min-width:0;display:flex;align-items:center;justify-content:center;background:var(--ground,#d8c08a);overflow:hidden}
+#wrap{position:relative;flex:1;min-width:0;display:flex;align-items:center;justify-content:flex-start;background:var(--ground,#d8c08a);overflow:hidden}
 canvas#c{background:#d8c08a;border:3px solid #d8b058;border-radius:14px;box-shadow:0 0 0 3px #4a2e0e,0 0 0 5px #a8802e,0 12px 40px #000c;touch-action:none;display:block}
 .ab{position:relative;width:48px;height:48px;min-width:44px;min-height:44px;border-radius:50%;padding:0;border:3px solid #d8b058;background:#2a1c0c;box-shadow:0 0 0 2px #4a3008,0 4px 10px #000a;cursor:pointer;overflow:hidden;flex-shrink:0}
 .ab.hero{width:56px;height:56px}
@@ -848,17 +848,13 @@ function hideUI(){document.body.classList.remove('play')}
 function setGround(L){const c=(L&&L.bg)||'#d8c08a';document.documentElement.style.setProperty('--ground',c);cv.style.background=c;$('wrap').style.background=c}
 function resize(){const w=innerWidth,h=innerHeight,port=w<h&&('ontouchstart' in window||navigator.maxTouchPoints>1);
  const rot=$('rotate');if(rot)rot.classList.toggle('show',!!port);if(port)return;
- const play=document.body.classList.contains('play');
- const safeL=play?0:0; // rail already includes safe-area padding
+ const play=document.body.classList.contains('play'),wrap=$('wrap');
+ wrap.style.justifyContent=play?'flex-start':'center';
  let railW=0;
- if(play){const phone=isMobileUI();railW=phone?60:68;const safe=parseInt(getComputedStyle(document.documentElement).paddingLeft)||0;
-  // include left safe-area into rail width via CSS padding; --rail is content column
-  document.documentElement.style.setProperty('--rail',railW+'px');
-  railW=$('rail').getBoundingClientRect().width||railW}
- const availW=Math.max(120,w-railW),availH=h;
- const sc=Math.min(availW/W,availH/H);
+ if(play){document.documentElement.style.setProperty('--rail',(isMobileUI()?60:68)+'px');railW=$('rail').getBoundingClientRect().width|| (isMobileUI()?60:68)}
+ const availW=Math.max(120,w-railW),availH=h,sc=Math.min(availW/W,availH/H);
  cv.style.width=Math.floor(W*sc)+'px';cv.style.height=Math.floor(H*sc)+'px';
- if(isMobileUI()||play){cv.style.border=isMobileUI()?'0':'';if(isMobileUI()){cv.style.borderRadius='0';cv.style.boxShadow='none'}}
+ if(isMobileUI()){cv.style.border='0';cv.style.borderRadius='0';cv.style.boxShadow='none'}
 }
 addEventListener('fullscreenchange',resize);addEventListener('webkitfullscreenchange',resize);
 
